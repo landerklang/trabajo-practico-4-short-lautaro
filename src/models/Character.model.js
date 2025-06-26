@@ -1,5 +1,5 @@
 import { DataTypes} from "sequelize";
-import sequelize from "../config/database.js";
+import {sequelize} from "../config/database.js";
 
 const Character = sequelize.define("character",{
     id: {type: DataTypes.NUMBER, allownull: false, primaryKey: true },

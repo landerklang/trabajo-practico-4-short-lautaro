@@ -1,7 +1,8 @@
 import express from "express";
 import "dotenv/config";
 import characterouter from "./src/routes/character.routes.js";
-import sequelize from "./src/config/database.js";
+import {sequelize} from "./src/config/database.js";
+import {startOn} from "./src/config/database.js";
 
 
 const app = express();
@@ -12,6 +13,8 @@ sequelize.authenticate();
 
 app.use("/api", characterouter)
 
-app.listen(PORT, () =>{
-    console.log(`Servidor corriendo en http://localhost:${PORT}`)
-});
+startOn().then(()=>{
+    app.listen(PORT, ()=>{
+        console.log("Escuchando en el puerto tatatatat");
+    })
+})
