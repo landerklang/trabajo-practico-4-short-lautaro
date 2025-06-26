@@ -1,0 +1,12 @@
+import sequelize from "../config/database";
+import { DataTypes} from "sequelize";
+
+export const character=sequelize.define("character",{
+    name: {type: DataTypes.STRING, allownull: false},
+    ki: {type: DataTypes.NUMBER, allownull: false },
+    gender:{type: DataTypes.STRING, allownull: false},
+    race: {type: DataTypes.STRING, allownull:false},
+    descripcion: {type: DataTypes.STRING, },
+});
+
+export default character;
