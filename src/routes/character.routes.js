@@ -3,14 +3,14 @@ import {  createcharacter, getAllcharacter, getcharacterById, updatecharacter,de
 
 const characterouter = express.Router()
 
-characterouter.post("/Character", createcharacter);
+characterouter.post("/characters", createcharacter);
 
-characterouter.get("/Character", getAllcharacter);
+characterouter.get("/characters", getAllcharacter);
 
-characterouter.get("/:id", getcharacterById);
+characterouter.get("/characters/:id", getcharacterById);
 
-characterouter.put("/:id",updatecharacter);
+characterouter.put("/characters/:id",updatecharacter);
 
-characterouter.delete("/:id", deletecharacter);
+characterouter.delete("/character/:id", deletecharacter);
 
 export default characterouter;
