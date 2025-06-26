@@ -11,6 +11,6 @@ characterouter.get("/characters/:id", getcharacterById);
 
 characterouter.put("/characters/:id",updatecharacter);
 
-characterouter.delete("/character/:id", deletecharacter);
+characterouter.delete("/characters/:id", deletecharacter);
 
 export default characterouter;

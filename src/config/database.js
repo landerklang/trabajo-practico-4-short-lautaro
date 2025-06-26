@@ -14,7 +14,7 @@ export const sequelize = new Sequelize(
 
 export const startOn=async()=>{
     try{
-        await sequelize.authenticate();
+        await sequelize.sync()
         console.log("conexion exitosa");
     }catch (error){
             console.error("no se pudo conectarse a DB;",error);
