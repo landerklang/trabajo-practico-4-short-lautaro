@@ -1,11 +1,14 @@
-import { INTEGER, STRING } from "sequelize";
 import Character from "../models/Character.model.js";
 //verificacion de que los atributos no sean validos
 
 export const createcharacter = async (req, res) => {
     const{ id, name, ki, gender, race, descripcion} = req.body;
+    
     if (name===""){
         return res.status(401).json({message: "no se permiten campos vacios"})
+    };
+    if(typeof descripcion !== "string" && descripcion !== "" && descripcion !== undefined ){
+        return res.status(400).json ({message: "solo se permiten descripciones en cadenas"})
     };
     if (id===""){
         return res.status(401).json({message: "no se permiten campos vacios"})
@@ -25,14 +28,23 @@ export const createcharacter = async (req, res) => {
     if (ki !== kiInt ){ 
         return res.status(400).json({message: "solo se permite valores numericos"})
     };
-    if (gender !== "male" || gender !== "female"){
-        return res.status(401).json({message: "solo se permiten añadir los generos Male y Female" })
+    //verificacion del genero
+
+    if (gender !== "Male" && gender !== "Female"){
+        return res.status(400).json({message: "solo se permiten añadir los generos Male y Female" })
     };
+
+    if (descripcion)
+    
     try{
         const character = await Character.create(req.body);
         res.status(201).json(character);
     } catch (err){
         res.status(500).json({ error: err.message});
+    };
+    const nombretab = await nombre.findOne(req,body)
+    if(nombre===nombretab){
+        return res.status(400).json({message: "no se puedes añadir datos ya existente en la base de datos "})
     };
 };
 
