@@ -6,7 +6,7 @@ const Character = sequelize.define("Character",{
     ki: {type: DataTypes.INTEGER, allownull: false },
     gender:{type: DataTypes.STRING, allownull: false},
     race: {type: DataTypes.STRING, allownull:false},
-    descripcion: {type: DataTypes.STRING, },
+    description: {type: DataTypes.STRING, },
 });
 
 export default Character;
